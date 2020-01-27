@@ -1,0 +1,11 @@
+@startuml
+class Invitation
+class Bag
+class Audience
+class Theater
+class Ticket
+class TicketOffice
+class TicketSeller
+
+
+@enduml
