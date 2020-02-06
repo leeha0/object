@@ -1,0 +1,45 @@
+@startuml
+class Movie {
+  title
+  runningTime
+  fee
+  movieType
+  discountAmount
+  discountPercent
+}
+
+class DiscountCondition {
+    type
+    sequence
+    dayOfWeek
+    startTime
+    endTime
+}
+
+class Customer {
+}
+
+class Reservation {
+    fee
+    audienceCount
+}
+
+class Screening {
+    sequence
+    whenScreened
+}
+
+class ReservationAgency {
+    reserve()
+}
+
+Movie --> DiscountCondition
+Reservation --> Screening
+Reservation --> Customer
+Screening --> Movie
+ReservationAgency ..> Movie
+ReservationAgency ..> Screening
+ReservationAgency ..> DiscountCondition
+ReservationAgency ..> Reservation
+
+@enduml
