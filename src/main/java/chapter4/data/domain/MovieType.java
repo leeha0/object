@@ -1,7 +1,7 @@
-package chapter4.domain;
+package chapter4.data.domain;
 
 public enum MovieType {
     AMOUNT_DISCOUNT,
     PERCENT_DISCOUNT,
-    NON_DISCOUNT
+    NONE_DISCOUNT
 }

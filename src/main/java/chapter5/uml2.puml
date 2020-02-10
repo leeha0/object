@@ -1,0 +1,49 @@
+@startuml
+class Screening {
+    +reserve()
+}
+
+class Movie {
+    +calculateMovieFee()
+}
+
+abstract class DiscountPolicy {
+    +calculateDiscountAmount()
+    #getDiscountAmount()
+}
+
+class AmountDiscountPolicy {
+    #getDiscountAmount()
+}
+
+class PercentDiscountPolicy {
+    #getDiscountAmount()
+}
+
+class NoneDiscountPolicy {
+    #getDiscountAmount()
+}
+
+interface DiscountCondition {
+    +isSatisfiedBy()
+}
+
+class SequenceCondition {
+    +isSatisfiedBy()
+}
+
+class PeriodCondition {
+    +isSatisfiedBy()
+}
+
+Screening --> Movie
+Movie --> DiscountPolicy
+DiscountPolicy --> DiscountCondition
+
+AmountDiscountPolicy --|> DiscountPolicy
+PercentDiscountPolicy --|> DiscountPolicy
+NoneDiscountPolicy --|> DiscountPolicy
+
+SequenceCondition ..|> DiscountCondition
+PeriodCondition ..|> DiscountCondition
+@enduml

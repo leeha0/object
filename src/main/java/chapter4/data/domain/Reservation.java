@@ -1,4 +1,4 @@
-package chapter4.domain;
+package chapter4.data.domain;
 
 import chapter2.domain.Money;
 

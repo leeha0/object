@@ -1,4 +1,4 @@
-package chapter4.domain;
+package chapter4.data.domain;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -50,5 +50,24 @@ public class DiscountCondition {
 
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
+    }
+
+    /* 자신의 상태를 스스로 결정하는 메서드 추가 */
+    public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
+        if (type != DiscountConditionType.PERIOD) {
+            throw new IllegalArgumentException();
+        }
+
+        return this.dayOfWeek.equals(dayOfWeek) &&
+                this.startTime.compareTo(time) <= 0 &&
+                this.endTime.compareTo(time) >= 0;
+    }
+
+    public boolean isDiscountable(int sequence) {
+        if (type != DiscountConditionType.SEQUENCE) {
+            throw new IllegalArgumentException();
+        }
+
+        return this.sequence == sequence;
     }
 }

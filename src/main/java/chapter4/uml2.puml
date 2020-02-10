@@ -1,0 +1,54 @@
+@startuml
+class Movie {
+  title
+  runningTime
+  fee
+  movieType
+  discountAmount
+  discountPercent
+
+  getType()
+  calculateAmountDiscountedFee()
+  calculatePercentDiscountedFee()
+  calculateNoneDiscountedFee()
+  isDiscountable(whenScreened, sequence)
+}
+
+class DiscountCondition {
+    type
+    sequence
+    dayOfWeek
+    startTime
+    endTime
+
+    isDiscountable(dayOfWeek, whenScreened)
+    isDiscountable(sequence)
+}
+
+class Customer {
+}
+
+class Reservation {
+    fee
+    audienceCount
+}
+
+class Screening {
+    sequence
+    whenScreened
+
+    calculateFee(audienceCount)
+}
+
+class ReservationAgency {
+    reserve()
+}
+
+Movie --> DiscountCondition
+Reservation --> Screening
+Reservation --> Customer
+Screening --> Movie
+ReservationAgency ..> Screening
+ReservationAgency ..> Reservation
+
+@enduml

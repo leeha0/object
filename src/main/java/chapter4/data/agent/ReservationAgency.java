@@ -1,7 +1,7 @@
-package chapter4.agent;
+package chapter4.data.agent;
 
 import chapter2.domain.Money;
-import chapter4.domain.*;
+import chapter4.data.domain.*;
 
 public class ReservationAgency {
     public Reservation reserve(Screening screening, Customer customer, int audienceCount) {
@@ -23,26 +23,26 @@ public class ReservationAgency {
             }
         }
 
-        Money fee;
-        if (discountable) {
-            // 할인 금액
-            Money discountAmount = Money.ZERO;
-            switch (movie.getMovieType()) {
-                case AMOUNT_DISCOUNT:
-                    discountAmount = movie.getDiscountAmount();
-                    break;
-                case PERCENT_DISCOUNT:
-                    discountAmount = movie.getFee().times(movie.getDiscountPercent());
-                    break;
-                case NON_DISCOUNT:
-                    discountAmount = Money.ZERO;
-                    break;
-            }
-
-            fee = movie.getFee().minus(discountAmount).times(audienceCount);
-        } else {
-            fee = movie.getFee();
-        }
+        Money fee = screening.calculateFee(audienceCount);
+//        if (discountable) {
+//            // 할인 금액
+//            Money discountAmount = Money.ZERO;
+//            switch (movie.getMovieType()) {
+//                case AMOUNT_DISCOUNT:
+//                    discountAmount = movie.getDiscountAmount();
+//                    break;
+//                case PERCENT_DISCOUNT:
+//                    discountAmount = movie.getFee().times(movie.getDiscountPercent());
+//                    break;
+//                case NONE_DISCOUNT:
+//                    discountAmount = Money.ZERO;
+//                    break;
+//            }
+//
+//            fee = movie.getFee().minus(discountAmount).times(audienceCount);
+//        } else {
+//            fee = movie.getFee();
+//        }
 
         return new Reservation(customer, screening, fee, audienceCount);
     }
