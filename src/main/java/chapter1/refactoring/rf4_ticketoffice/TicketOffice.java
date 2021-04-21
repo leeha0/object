@@ -1,8 +1,11 @@
-package chapter1.domain;
+package chapter1.refactoring.rf4_ticketoffice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import chapter1.domain.Ticket;
+import chapter1.refactoring.rf3_bag.Audience;
 
 public class TicketOffice {
 
@@ -14,15 +17,21 @@ public class TicketOffice {
         this.tickets.addAll(Arrays.asList(tickets));
     }
 
-    public Ticket getTicket() {
+    // Audience 의존성 추가
+    // 트레이드오프
+    public void sellTicketTo(Audience audience) {
+        plusAmount(audience.buy(getTicket()));
+    }
+
+    private Ticket getTicket() {
         return tickets.remove(0);
     }
 
-    public void minusAmount(Long amount) {
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
-    public void plusAmount(Long amount) {
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 }

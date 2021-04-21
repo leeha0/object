@@ -4,6 +4,7 @@ import chapter2.domain.Screening;
 
 public class SequenceCondition implements DiscountCondition {
 
+    // 순번
     private int sequence;
 
     public SequenceCondition(int sequence) {
@@ -11,7 +12,7 @@ public class SequenceCondition implements DiscountCondition {
     }
 
     @Override
-    public boolean isSatisfindBy(Screening screening) {
+    public boolean isSatisfiedBy(Screening screening) {
         return screening.isSequence(sequence);
     }
 }

@@ -7,8 +7,11 @@ import java.time.LocalTime;
 
 public class PeriodCondition implements DiscountCondition {
 
+    // 요일
     private DayOfWeek dayOfWeek;
+    // 사작 시간
     private LocalTime startTime;
+    // 종료 시간
     private LocalTime endTime;
 
     public PeriodCondition(DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime) {
@@ -18,7 +21,7 @@ public class PeriodCondition implements DiscountCondition {
     }
 
     @Override
-    public boolean isSatisfindBy(Screening screening) {
+    public boolean isSatisfiedBy(Screening screening) {
         return screening.getStartTime().getDayOfWeek().equals(dayOfWeek) &&
                 startTime.compareTo(screening.getStartTime().toLocalTime()) <= 0 &&
                 endTime.compareTo(screening.getStartTime().toLocalTime()) >= 0;

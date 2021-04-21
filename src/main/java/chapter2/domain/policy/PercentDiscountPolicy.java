@@ -6,6 +6,7 @@ import chapter2.domain.condition.DiscountCondition;
 
 public class PercentDiscountPolicy extends DiscountPolicy {
 
+    // 할인 비중
     private double percent;
 
     public PercentDiscountPolicy(double percent, DiscountCondition... conditions) {

@@ -15,9 +15,10 @@ public abstract class DiscountPolicy {
         this.conditions = Arrays.asList(conditions);
     }
 
+    // 공통 로직 구현
     public Money calculateDiscountAmount(Screening screening) {
         for (DiscountCondition each : conditions) {
-            if (each.isSatisfindBy(screening)) {
+            if (each.isSatisfiedBy(screening)) {
                 return getDiscountAmount(screening);
             }
         }
