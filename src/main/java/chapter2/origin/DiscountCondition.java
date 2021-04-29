@@ -1,7 +1,6 @@
 package chapter2.origin;
 
-public class DiscountCondition {
+public interface DiscountCondition {
 
-    public boolean isSatisfiedBy(Screening screening) {
-    }
+    boolean isSatisfiedBy(Screening screening);
 }

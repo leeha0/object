@@ -14,7 +14,7 @@ public class Screening {
         this.whenScreened = whenScreened;
     }
 
-    public LocalDateTime getStartDate() {
+    public LocalDateTime getStartTime() {
         return whenScreened;
     }
 
