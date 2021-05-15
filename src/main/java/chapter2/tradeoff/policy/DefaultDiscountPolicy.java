@@ -1,4 +1,4 @@
-package chapter2.domain.policy;
+package chapter2.tradeoff.policy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,16 +8,15 @@ import chapter2.domain.Money;
 import chapter2.domain.Screening;
 import chapter2.domain.condition.DiscountCondition;
 
-public abstract class DiscountPolicy {
+public abstract class DefaultDiscountPolicy implements DiscountPolicy {
 
     private List<DiscountCondition> conditions = new ArrayList<>();
 
-    // 생성자를 통해 파라미터 강제
-    public DiscountPolicy(DiscountCondition... conditions) {
+    public DefaultDiscountPolicy(DiscountCondition... conditions) {
         this.conditions = Arrays.asList(conditions);
     }
 
-    // 공통 로직 구현
+    @Override
     public Money calculateDiscountAmount(Screening screening) {
         for (DiscountCondition each : conditions) {
             if (each.isSatisfiedBy(screening)) {

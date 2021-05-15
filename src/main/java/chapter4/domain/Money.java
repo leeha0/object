@@ -1,4 +1,4 @@
-package chapter2.domain;
+package chapter4.domain;
 
 
 import java.math.BigDecimal;

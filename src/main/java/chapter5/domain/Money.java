@@ -1,12 +1,9 @@
-package chapter2.domain;
-
+package chapter5.domain;
 
 import java.math.BigDecimal;
 
 public class Money {
 
-    // 금액을 표현하는 클래스를 구현하여 구체적인 의미를 전달
-    // 도메인의 의미를 풍부하게 표현
     public static final Money ZERO = Money.wons(0);
 
     private final BigDecimal amount;

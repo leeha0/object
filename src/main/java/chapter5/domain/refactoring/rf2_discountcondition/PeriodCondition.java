@@ -1,9 +1,9 @@
-package chapter2.domain.condition;
+package chapter5.domain.refactoring.rf2_discountcondition;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-import chapter2.domain.Screening;
+import chapter5.domain.Screening;
 
 public class PeriodCondition implements DiscountCondition {
 
@@ -19,8 +19,8 @@ public class PeriodCondition implements DiscountCondition {
 
     @Override
     public boolean isSatisfiedBy(Screening screening) {
-        return screening.getStartTime().getDayOfWeek().equals(dayOfWeek) &&
-            startTime.compareTo(screening.getStartTime().toLocalTime()) <= 0 &&
-            endTime.compareTo(screening.getStartTime().toLocalTime()) >= 0;
+        return dayOfWeek.equals(screening.getWhenScreened().getDayOfWeek()) &&
+            startTime.compareTo(screening.getWhenScreened().toLocalTime()) <= 0 &&
+            endTime.compareTo(screening.getWhenScreened().toLocalTime()) >= 0;
     }
 }

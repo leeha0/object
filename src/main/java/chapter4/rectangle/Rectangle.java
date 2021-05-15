@@ -1,6 +1,7 @@
 package chapter4.rectangle;
 
 public class Rectangle {
+
     private int left;
     private int top;
     private int right;
@@ -43,11 +44,5 @@ public class Rectangle {
 
     public void setBottom(int bottom) {
         this.bottom = bottom;
-    }
-
-    // 캡슐화 강화
-    public void enlarge(int multiple) {
-        right *= multiple;
-        bottom *= multiple;
     }
 }

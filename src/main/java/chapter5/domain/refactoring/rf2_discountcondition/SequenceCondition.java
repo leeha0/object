@@ -1,6 +1,6 @@
-package chapter2.domain.condition;
+package chapter5.domain.refactoring.rf2_discountcondition;
 
-import chapter2.domain.Screening;
+import chapter5.domain.Screening;
 
 public class SequenceCondition implements DiscountCondition {
 
@@ -12,6 +12,6 @@ public class SequenceCondition implements DiscountCondition {
 
     @Override
     public boolean isSatisfiedBy(Screening screening) {
-        return screening.isSequence(sequence);
+        return sequence == screening.getSequence();
     }
 }

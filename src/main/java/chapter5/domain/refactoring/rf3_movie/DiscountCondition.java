@@ -1,6 +1,6 @@
-package chapter2.domain.condition;
+package chapter5.domain.refactoring.rf3_movie;
 
-import chapter2.domain.Screening;
+import chapter5.domain.Screening;
 
 public interface DiscountCondition {
 

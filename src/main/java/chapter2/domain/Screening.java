@@ -3,12 +3,10 @@ package chapter2.domain;
 import java.time.LocalDateTime;
 
 public class Screening {
+
     // 인스턴스 변수의 가시성은 private
-    // 영화
     private Movie movie;
-    // 순번
     private int sequence;
-    // 상영 시작 시간
     private LocalDateTime whenScreened;
 
     // 메서드의 가시성은 public
