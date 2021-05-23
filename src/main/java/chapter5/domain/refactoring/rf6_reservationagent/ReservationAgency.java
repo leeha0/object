@@ -1,7 +1,6 @@
 package chapter5.domain.refactoring.rf6_reservationagent;
 
 import chapter5.domain.Customer;
-import chapter5.domain.DiscountConditionType;
 import chapter5.domain.Money;
 import chapter5.domain.Movie;
 import chapter5.domain.Reservation;
@@ -20,7 +19,7 @@ public class ReservationAgency {
 
     private boolean checkDiscountable(Screening screening) {
         return screening.getMovie().getDiscountConditions().stream()
-            .anyMatch(condition -> condition.isDiscountable(condition, screening));
+            .anyMatch(condition -> condition.isSatisfiedBy(screening));
     }
 
     private Money calculateFee(Screening screening, boolean discountable, int audienceCount) {
