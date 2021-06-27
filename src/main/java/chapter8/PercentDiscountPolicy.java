@@ -1,9 +1,9 @@
 package chapter8;
 
-public class PercentDiscountPolicy implements DiscountPolicy {
+public class PercentDiscountPolicy extends DiscountPolicy {
 
     @Override
-    public Money calculateDiscountAmount(Screening screening) {
+    protected Money getDiscountAmount(Screening screening) {
         return null;
     }
 }
